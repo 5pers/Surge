@@ -1,25 +1,25 @@
 # Surge APP Shadowsocks Encrypt Support Module
 
 ## Usage
-- Download The SSEncrypt Module form URL Below
+- Download The SSEncrypt Module form URL below
 ```url
 https://raw.githubusercontent.com/Unbinilium/Surge/master/SSEncrypt.module
 ```
 
-## Example Conf
-- It is Only the Proxy Part, and You're Suppose to fill **SeverIP**、**ServerPort**、**EncryptMethod** and **Paddword** Manually
+## Example Configurations
+- Only the Proxy part and you are suppose to fill **SeverIP**、**ServerPort**、**EncryptMethod** and **Paddword** manually
 ```conf
 [Proxy]
 Shadowsocks = custom,ServerIP,ServerPort,EncryptMethod,Password,https://raw.githubusercontent.com/Unbinilium/Surge/master/SSEncrypt.module
 ```
-- If You're using <a href="https://github.com/shadowsocks/simple-obfs" target="_blank">simple-obfs</a>, Please try this example after fill **ObfsMethod** and **ObfsHost** Manually
+- If you are using <a href="https://github.com/shadowsocks/simple-obfs" target="_blank">simple-obfs</a>, Please try this example after fill **ObfsMethod** and **ObfsHost** manually
 ```conf
 custom,ServerIP,ServerPort,EncryptMethod,Password,https://raw.githubusercontent.com/Unbinilium/Surge/master/SSEncrypt.module,obfs=ObfsMethod,obfs-host=ObfsHost
 ```
 
 ## Notice
-- Now Only Supported these Encrypt Method
-```encrypt
+- Now only supported these Stream Ciphers for encrypt methods
+```txt
 rc4
 rc4-md5
 rc2-cfb
@@ -40,31 +40,34 @@ aes-256-ctr
 salsa20
 chacha20
 chacha20-ietf
+```
+- These AEAD Ciphers are recommend to you instead of the Stream Ciphers
+```txt
 aes-128-gcm
 aes-192-gcm
 aes-256-gcm
 chacha20-ietf-poly1305
 ```
-- Now Supported these Obfs Method
-```obfs
+- Now supported these obfs method
+```txt
 http
 tls
 ```
-- Also, the default Obfs Host is here. Change it if you like. Suggest to Use CDN Domain which is not Blocked
-```obfs
+- Also the default obfs-host is here if you leave there free. Recommend to use CDN domains which are not blocked. It related with your server side configurations
+```txt
 cloudfront.com
 ```
 
 ## Suggestions
-- For Better Security, these Encrypt Method are Supported <a href="https://en.wikipedia.org/wiki/Authenticated_encryption" target="_blank">AEAD</a> (Authenticated Encryption with Associated Data)
-```encrypt
+- For better security, use these cipher as possible as you can <a href="https://en.wikipedia.org/wiki/Authenticated_encryption" target="_blank">AEAD</a> (Authenticated Encryption with Associated Data)
+```txt
 aes-128-gcm
 aes-192-gcm
 aes-256-gcm
 chacha20-ietf-poly1305
 ```
-- Add a TLS Obfs and Change the default Obfs Host
-- Try to Use TCP Fast Open by Add that perfix ```,tfo=true``` in the end of the line of the Proxy Part
+- Add a TLS obfs and change the default obfs-host
+- Try to use TCP Fast Open by add the perfix ```,tfo=true``` in the end of the line in the Proxy configurations
 
-## Manual for Surge App
-- View Official Surge <a href="https://manual.nssurge.com/" target="_blank">Manual Guide </a>
+## Manual of Surge App
+- View official Surge <a href="https://manual.nssurge.com/" target="_blank">Manual Guides</a>
