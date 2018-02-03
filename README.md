@@ -65,6 +65,7 @@ aes-128-gcm
 aes-192-gcm
 aes-256-gcm
 chacha20-ietf-poly1305
+xchacha20-ietf-poly1305
 ```
 - Add a TLS obfs and change the default obfs-host
 - Try to use TCP Fast Open by add the perfix ```,tfo=true``` in the end of the line in the Proxy configurations
